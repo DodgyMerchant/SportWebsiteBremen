@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    height: 60px;
+    background-color: white;
+    -webkit-box-shadow: 0px 5px 15px 0px #9D9D9D; 
+    box-shadow: 0px 5px 15px 0px #9D9D9D;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.navbar li a:hover {
+    color: #343a40;
+    cursor: pointer;
+}
+
+.obenlinks {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+
+}
+
+.obenlinks1 {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    z-index: -1;
+}
+
+.schraege {
+    position: absolute;
+    height: 600px;
+    width: 600px;
+    z-index: 0;
+}
+
+.schraege1 {
+    position: absolute;
+    height: 600px;
+    width: 600px;
+    z-index: -1;
+}
+
+.untenrechts {
+    position: absolute;
+    height: 437.4px;
+    width: 300px;
+    right: 0%;
+    bottom: 0%;
+}
+
+.mitte {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+}
+
+.mitte1 {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    z-index: -1;
+}
+
+.mapbox {
+    position: relative;
+    height: 87vh;
+    width: 97.2%;
+    margin: 20px;
+    background-color: white;
+    z-index: 10;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 15px 0px #9D9D9D; 
+    box-shadow: 0px 0px 15px 0px #9D9D9D;
+}
