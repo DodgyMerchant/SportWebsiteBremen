@@ -100,7 +100,40 @@
     box-shadow: 0px 0px 15px 0px #9D9D9D;
 }
 
-.mehrText {
-    padding: 45px;
-    padding-right: 50%;
+.mehrbox {
+    position: relative;
+    height: 87vh;
+    width: 97.2%;
+    margin: 20px;
+    background-color: white;
+    z-index: 10;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 15px 0px #9D9D9D;
+    box-shadow: 0px 0px 15px 0px #9D9D9D;
+}
+
+.mehrtext {
+    position: relative;
+    padding-top: 60px;
+    padding-left: 70px;
+    padding-right: 800px;
+    font-size: 20px;
+}
+
+.mehrInformationüberdieWebsite {
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.mehrInformationüberdasProjekt {
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.mehrtext1 {
+    padding-top: 30px;
+}
+
+.mehrtext2 {
+    padding-top: 30px;
 }
