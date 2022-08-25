@@ -7,7 +7,7 @@
 .navbar {
     height: 60px;
     background-color: white;
-    -webkit-box-shadow: 0px 5px 15px 0px #9D9D9D; 
+    -webkit-box-shadow: 0px 5px 15px 0px #9D9D9D;
     box-shadow: 0px 5px 15px 0px #9D9D9D;
     align-items: center;
     justify-content: center;
@@ -96,6 +96,11 @@
     background-color: white;
     z-index: 10;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 15px 0px #9D9D9D; 
+    -webkit-box-shadow: 0px 0px 15px 0px #9D9D9D;
     box-shadow: 0px 0px 15px 0px #9D9D9D;
+}
+
+.mehrText {
+    padding: 45px;
+    padding-right: 50%;
 }
