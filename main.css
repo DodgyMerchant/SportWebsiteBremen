@@ -137,3 +137,32 @@
 .mehrtext2 {
     padding-top: 30px;
 }
+
+.kontaktbox {
+    position: relative;
+    height: 87vh;
+    width: 97.2%;
+    margin: 20px;
+    background-color: white;
+    z-index: 10;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 15px 0px #9D9D9D;
+    box-shadow: 0px 0px 15px 0px #9D9D9D;
+}
+
+.kontakttext {
+    position: relative;
+    padding-top: 60px;
+    padding-left: 70px;
+    padding-right: 800px;
+    font-size: 20px;
+}
+
+.kontakt {
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.namenundmails {
+    padding-top: 30px;
+}
