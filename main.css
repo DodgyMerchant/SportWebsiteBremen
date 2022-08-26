@@ -7,8 +7,8 @@
 .navbar {
     height: 60px;
     background-color: white;
-    -webkit-box-shadow: 0px 5px 15px 0px #9D9D9D;
-    box-shadow: 0px 5px 15px 0px #9D9D9D;
+    -webkit-box-shadow: 0px 0px 10px -2px #9D9D9D;
+    box-shadow: 0px 0px 10px -2px #9D9D9D;
     align-items: center;
     justify-content: center;
 }
@@ -89,16 +89,17 @@
 }
 
 .mapbox {
-    position: relative;
-    height: 87vh;
+    position: absolute;
+    height: 85vh;
     width: 97.2%;
     margin: 20px;
     margin-right: 40px;
     background-color: white;
     z-index: 10;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 15px 0px #9D9D9D;
-    box-shadow: 0px 0px 15px 0px #9D9D9D;
+    -webkit-box-shadow: 0px 0px 10px -2px #9D9D9D;
+    box-shadow: 0px 0px 10px -2px #9D9D9D;
+    padding-top: 20px;
 }
 
 .mehrbox {
@@ -109,8 +110,8 @@
     background-color: white;
     z-index: 10;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 15px 0px #9D9D9D;
-    box-shadow: 0px 0px 15px 0px #9D9D9D;
+    -webkit-box-shadow: 0px 0px 10px -2px #9D9D9D;
+    box-shadow: 0px 0px 10px -2px #9D9D9D;
 }
 
 .mehrtext {
@@ -147,8 +148,8 @@
     background-color: white;
     z-index: 10;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 15px 0px #9D9D9D;
-    box-shadow: 0px 0px 15px 0px #9D9D9D;
+    -webkit-box-shadow: 0px 0px 10px -2px #9D9D9D;
+    box-shadow: 0px 0px 10px -2px #9D9D9D;
 }
 
 .kontakttext {
@@ -173,4 +174,20 @@
     padding-right: 60px;
     padding-left: 53%;
     padding-top: 50px;
+}
+
+#template_info {
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 10px -2px #9D9D9D;
+    box-shadow: 0px 0px 10px -2px #9D9D9D;
+    width: 500px;
+    height: 612px;
+    margin-left: 20px;
+    background-color: white;
+    opacity: 0.8;
+    padding: 20px;
+}
+
+#MapMarkerInfo_Titel {
+    font-size: 18px;
 }
