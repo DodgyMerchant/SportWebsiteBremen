@@ -102,6 +102,49 @@
 
     <div class="mapbox">
         <!-- hier die sachen für die map -->
+        <!-- 
+          Zum teste und stylen
+          representiert nur das innere einer infobox
+          ich guck noch ob man den rest stylen kann
+
+          man kann wirklich ALLES noch ändern
+          das einzige was bleiben muss sind die ID namen da der inhalt der HTML elemente im code ersetzt wird
+          und das die template IDs ein parent von ihren sachen sein muss.
+          MUss kein direkter parent sein.
+
+          Der text der ID elemente wird ersetzt, muss aber auch nicht.
+          Wenn ihr pre oder post text haben wollt kann man das machen.
+        -->
+        <div id="template_info">
+          <header>
+            <h2 id="MapMarkerInfo_Titel">TESTINFOBOX</h2>
+          </header>
+          <p id="MapMarkerInfo_Typ">TYP</p>
+          <p id="MapMarkerInfo_Sportarten">SPORTARTEN</p>
+          <p id="MapMarkerInfo_Adresse">ADRESSE</p>
+          <p id="MapMarkerInfo_AnsprchP">ANSPRECHPARTNER</p>
+          <p id="MapMarkerInfo_Telefon">TEL</p>
+          <p id="MapMarkerInfo_Email">EMAIL</p>
+          <div>
+            <h3>Vereine</h3>
+            <div id="MapMarkerInfo_Vereine">
+              <div id="template_vereine">
+                <header>
+                  <h4 id="Verein_Titel">VEREIN_NAME1</h4>
+                </header>
+                <p id="Verein_Sportarten">SPORTARTEN</p>
+                <p id="Verein_Link">LINK</p>
+              </div>
+              <div id="template_vereine">
+                <header>
+                  <h4 id="Verein_Titel">VEREIN_NAME2</h4>
+                </header>
+                <p id="Verein_Sportarten">SPORTARTEN</p>
+                <p id="Verein_Link">LINK</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
     </div>
 </body>
