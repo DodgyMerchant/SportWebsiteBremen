@@ -43,6 +43,8 @@ img {
 
 html {
 	--colBackgound: white;
+	--rowOdd: #adb5bd;
+	--rowEven: #dee2e6;
 }
 
 * {
@@ -51,6 +53,7 @@ html {
 }
 
 .navbar {
+	position: static;
 	height: 60px;
 	width: 100%;
 	background-color: white;
@@ -84,48 +87,48 @@ html {
 }
 
 .obenlinks {
-	position: absolute;
+	position: fixed;
 	height: 200px;
 	width: 300px;
 }
 
 .obenlinks1 {
-	position: absolute;
+	position: fixed;
 	height: 200px;
 	width: 300px;
 	z-index: -1;
 }
 
 .schraege {
-	position: absolute;
+	position: fixed;
 	height: 600px;
 	width: 600px;
 	z-index: 0;
 }
 
 .schraege1 {
-	position: absolute;
+	position: fixed;
 	height: 600px;
 	width: 600px;
 	z-index: -1;
 }
 
 .untenrechts {
-	position: absolute;
+	position: fixed;
 	height: 437.4px;
 	width: 300px;
-	right: 0%;
-	bottom: 0%;
+	right: 0;
+	bottom: 0;
 }
 
 .mitte {
-	position: absolute;
+	position: fixed;
 	height: 100%;
 	left: 50%;
 }
 
 .mitte1 {
-	position: absolute;
+	position: fixed;
 	height: 100%;
 	left: 50%;
 	z-index: -1;
@@ -214,19 +217,13 @@ html {
 	flex-wrap: nowrap;
 	gap: 1em;
 	/* vlad */
+	float: left;
 	position: absolute;
-	height: 89%;
-	width: 97.5%;
-	background-color: var(--colBackgound);
+	height: 100%;
+	width: 100%;
 	z-index: 10;
-	border-radius: 5px;
-	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
-	box-shadow: 0px 0px 10px -2px #9d9d9d;
 	overflow: hidden;
-	top: 80px;
-	bottom: 20px;
-	left: 1.125%;
-	right: 1.125%;
+	padding: 20px
 }
 
 #mapInfo,
@@ -239,6 +236,8 @@ html {
 	height: auto; /* 100% */
 	width: auto;
 	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
+	box-shadow: 0px 0px 10px -2px #9d9d9d;
 }
 
 #mapInfo {
@@ -248,21 +247,41 @@ html {
 	/* width: max-content; */
 
 	/* vlad */
-	height: 100%;
+	height: auto;
 	position: absolute;
 	border-radius: 5px;
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
 	box-shadow: 0px 0px 10px -2px #9d9d9d;
 	width: 500px;
-	background-color: white;
+	background-color: var(--colBackgound);
 	opacity: 0.8;
 	padding: 20px;
 	z-index: 10;
+	margin-top: 70px;
+	margin-left: 20px;
 }
 
 #MapMarkerInfo_Titel {
 	font-size: 18px;
 }
+
+.table_row_odd {
+	background-color: var(--rowOdd);
+}
+
+.table_row_even {
+	background-color: var(--rowEven);
+}
+
+.table {
+	text-align: center;
+	padding: 20px 0px 20px 0px;
+}
+
+.table td {
+	padding: 8px 42.5px 6px 42.5px;
+}
+
 
 /* table td {
 	line-height: 25px;
