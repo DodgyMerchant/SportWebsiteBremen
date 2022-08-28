@@ -41,6 +41,10 @@ img {
 
 /* #endregion Boilerplate */
 
+html {
+	--colBackgound: red;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -216,7 +220,7 @@ img {
 	width: 97.2%;
 	margin: 20px;
 	margin-right: 40px;
-	background-color: white;
+	background-color: var(--colBackgound);
 	z-index: 10;
 	border-radius: 5px;
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
