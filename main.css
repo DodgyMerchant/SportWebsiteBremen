@@ -201,11 +201,10 @@ html {
 	padding-top: 30px;
 }
 
-.sportBild {
+.mehrBild {
 	position: absolute;
-	padding-right: 60px;
-	padding-left: 53%;
-	padding-top: 50px;
+	padding-left: 400px;
+	padding-top: 10px;
 }
 
 /* #region map */
