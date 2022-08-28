@@ -209,7 +209,62 @@
           Der text der ID elemente wird ersetzt, muss aber auch nicht.
           Wenn ihr pre oder post text haben wollt kann man das machen.
         -->
-			<div id="template_info">
+
+			<article id="mapInfo">
+				<header>
+					<h2 class="info replace Titel">TESTINFOBOX</h2>
+				</header>
+				<main>
+					<p class="info pre text Typ">Typ:</p>
+					<p class="info replace Typ">TYP</p>
+					<p class="info pre text Sportarten">Angegebene Sportarten:</p>
+					<p class="info replace Sportarten">SPORTARTEN</p>
+					<p class="info pre text Adresse">Adresse:</p>
+					<p class="info replace Adresse">ADRESSE</p>
+					<p class="info pre text AnsprchP">Ansprechpartner:</p>
+					<p class="info replace AnsprchP">ANSPRECHPARTNER</p>
+					<p class="info pre text Telefon">Tel:</p>
+					<p class="info replace Telefon">TEL</p>
+					<p class="info pre text Email">E-Mail zur website</p>
+					<p class="info replace Email">EMAIL</p>
+				</main>
+				<aside>
+					<h3>Vereine</h3>
+					<div id="info_Vereine">
+						<div class="verein eintrag">
+							<header>
+								<h4 class="verein replace name">VEREIN_NAME2</h4>
+							</header>
+							<p class="verein pre text Sportarten">Angegebene Sportarten:</p>
+							<p class="verein replace sportarten">
+								SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN,
+								SPORTARTEN, SPORTARTEN
+							</p>
+							<a class="verein text link" href="">Link Zur Vereins Website.</a>
+						</div>
+
+						<div class="verein eintrag">
+							<header>
+								<h4 class="verein replace name">VEREIN_NAME1</h4>
+							</header>
+							<p class="verein pre text Sportarten">Angegebene Sportarten:</p>
+							<p class="verein replace sportarten">
+								SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN,
+								SPORTARTEN, SPORTARTEN
+							</p>
+							<a class="verein text link" href="">Link Zur Vereins Website.</a>
+						</div>
+					</div>
+				</aside>
+			</article>
+
+			<!-- 
+        !!!löschen wenn nciht mehr genuzt!!!
+      
+        \/ das <template> tag markiert hmtl der existiert aber nicht dargestellt wird.
+          ist da falls du den code noch brauchst
+      -->
+			<template id="mapInfo">
 				<header>
 					<h2 id="MapMarkerInfo_Titel">TESTINFOBOX</h2>
 				</header>
@@ -248,30 +303,13 @@
 						</td>
 					</tr>
 				</table>
+			</template>
 
-				<div>
-					<h3>Vereine</h3>
-					<div id="MapMarkerInfo_Vereine">
-						<div id="template_vereine">
-							<header>
-								<h4 id="Verein_Titel">VEREIN_NAME1</h4>
-							</header>
-							<p id="Verein_Sportarten">SPORTARTEN</p>
-							<p id="Verein_Link">LINK</p>
-						</div>
-						<div id="template_vereine">
-							<header>
-								<h4 id="Verein_Titel">VEREIN_NAME2</h4>
-							</header>
-							<p id="Verein_Sportarten">SPORTARTEN</p>
-							<p id="Verein_Link">LINK</p>
-						</div>
-					</div>
-				</div>
-			</div>
-      <div id="map"></div>
-
-
+			<div id="map"></div>
+			<script
+				defer
+				src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+			></script>
 		</div>
 	</body>
 </html>
