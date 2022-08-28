@@ -88,7 +88,7 @@
     z-index: -1;
 }
 
-.mapbox {
+#mapbox {
     position: absolute;
     height: 85vh;
     width: 97.2%;
@@ -193,7 +193,7 @@
 }
 
 
-.table td {
+table td {
     line-height: 25px;
     text-align: center;
     padding: 8px 8px 6px 8px;
