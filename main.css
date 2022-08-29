@@ -171,9 +171,6 @@ html {
 	font-weight: normal;
 }
 
-.mehrBild {
-	position: absolute;
-}
 
 .mehrText{
 	padding-top: 30px;
@@ -218,7 +215,7 @@ html {
 
 .mehrBild {
 	position: absolute;
-	padding-left: 400px;
+	padding-left: 800px;
 	padding-top: 10px;
 }
 
