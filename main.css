@@ -53,7 +53,6 @@ html {
 }
 
 .navbar {
-	position: static;
 	height: 60px;
 	width: 100%;
 	background-color: white;
@@ -135,15 +134,23 @@ html {
 }
 
 .mehrbox {
-	position: relative;
-	height: 87vh;
-	width: 97.2%;
-	margin: 20px;
-	background-color: white;
-	z-index: 10;
+	float: left;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 8;
+	overflow: hidden;
+	padding: 20px
+}
+
+.mehrInhalt {
+	height: 100%;
+	width: 100%;
 	border-radius: 5px;
+	z-index: 10;
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
 	box-shadow: 0px 0px 10px -2px #9d9d9d;
+	background-color: var(--colBackgound);
 }
 
 .mehrtext {
@@ -164,24 +171,32 @@ html {
 	font-weight: normal;
 }
 
-.mehrtext1 {
-	padding-top: 30px;
+.mehrBild {
+	position: absolute;
 }
 
-.mehrtext2 {
+.mehrText{
 	padding-top: 30px;
 }
 
 .kontaktbox {
-	position: relative;
-	height: 87vh;
-	width: 97.2%;
-	margin: 20px;
-	background-color: white;
-	z-index: 10;
+	float: left;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 8;
+	overflow: hidden;
+	padding: 20px
+}
+
+.kontaktInhalt {
+	height: 100%;
+	width: 100%;
 	border-radius: 5px;
+	z-index: 10;
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
 	box-shadow: 0px 0px 10px -2px #9d9d9d;
+	background-color: var(--colBackgound);
 }
 
 .kontakttext {
@@ -282,6 +297,9 @@ html {
 	padding: 8px 42.5px 6px 42.5px;
 }
 
+#info_Vereine {
+	line-height: 25px;
+}
 
 /* table td {
 	line-height: 25px;
