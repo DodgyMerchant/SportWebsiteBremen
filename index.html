@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 	<head>
-		<link rel="stylesheet" href="main.css" />
-
-		<script type="text/javascript" src="js/index.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		<script type="module" src="js/index.js"></script>
+		<!-- text/javascript module -->
 		<title>Sportmap</title>
 	</head>
 
-	<body>
-		<!--Hintergrund Anfang-->
+	<body class="expBox">
+		<!-- #region Hintergrund Anfang-->
 		<svg
 			class="obenlinks"
 			width="379"
@@ -185,8 +188,9 @@
 				</clipPath>
 			</defs>
 		</svg>
-		<!--Hintergrund Ende-->
-		<div class="navbar">
+		<!-- #endregion Hintergrund Ende-->
+
+		<div class="navbar expTop">
 			<ul>
 				<li style="padding-left: 15px; position: relative; z-index: 10">
 					<a href="index.html"><strong>Sportmap</strong></a>
@@ -198,83 +202,63 @@
 			</ul>
 		</div>
 
-		<div id="mapbox">
-			<!-- hier die sachen für die map -->
-			<!-- 
-          Zum teste und stylen
-          representiert nur das innere einer infobox
-          ich guck noch ob man den rest stylen kann
+		<div id="mapbox" class="inhalt expMiddle">
+			<!-- template used for the map -->
+			<template id="template_vereine">
+				<div class="verein eintrag">
+					<header>
+						<h4 class="verein replace name">VEREIN_NAME</h4>
+					</header>
+					<p class="verein pre text sportarten">Angegebene Sportarten:</p>
+					<p class="verein replace sportarten listing">
+						SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN,
+						SPORTARTEN, SPORTARTEN
+					</p>
+					<a class="verein text link" href="">Weitere Informationen></a>
+				</div>
+			</template>
 
-          man kann wirklich ALLES noch ändern
-          das einzige was bleiben muss sind die ID namen da der inhalt der HTML elemente im code ersetzt wird
-          und das die template IDs ein parent von ihren sachen sein muss.
-          MUss kein direkter parent sein.
+			<div id="mapInfoBox">
+				<article id="mapInfo">
+					<header>
+						<h3 class="info replace name">TESTINFOBOX</h3>
+					</header>
+					<br />
+					<main>
+						<p class="info replace adresse">ADRESSE</p>
+						<table class="table">
+							<tr class="table_row_odd">
+								<td><p class="info pre text sportarten">Sportarten</p></td>
+								<td>
+									<p class="info replace sportarten listing">SPORTARTEN</p>
+								</td>
+							</tr>
+							<tr class="table_row_even">
+								<td><p class="info pre text typ">Typ</p></td>
+								<td><p class="info replace typ">TYP</p></td>
+							</tr>
+							<tr class="table_row_odd">
+								<td><p class="info pre text ansprchP">Ansprechpartner</p></td>
+								<td><p class="info replace ansprchP">ANSPRECHPARTNER</p></td>
+							</tr>
+							<tr class="table_row_even">
+								<td><p class="info pre text email">E-Mail</p></td>
+								<td><p class="info replace email">EMAIL</p></td>
+							</tr>
+							<tr class="table_row_odd">
+								<td><p class="info pre text telefon">Tel</p></td>
+								<td><p class="info replace telefon">TEL</p></td>
+							</tr>
+						</table>
+					</main>
+					<aside>
+						<h3>Vereine</h3>
+						<br />
+						<div id="info_Vereine"></div>
+					</aside>
+				</article>
+			</div>
 
-          Der text der ID elemente wird ersetzt, muss aber auch nicht.
-          Wenn ihr pre oder post text haben wollt kann man das machen.
-        -->
-
-			<article id="mapInfo">
-				<header>
-					<h3 class="info replace Titel">TESTINFOBOX</h3>
-				</header>
-				<br>
-				<main>
-					<p class="info replace Adresse">ADRESSE</p>
-					<table class="table">
-						<tr class="table_row_odd">
-							<td><p class="info pre text Sportarten">Sportarten</p></td>
-							<td><p class="info replace Sportarten">SPORTARTEN</p></td>
-						</tr>
-						<tr class="table_row_even">
-							<td><p class="info pre text Typ">Typ</p></td>
-							<td><p class="info replace Typ">TYP</p></td>
-						</tr>
-						<tr class="table_row_odd">
-							<td><p class="info pre text AnsprchP">Ansprechpartner</p></td>
-							<td><p class="info replace AnsprchP">ANSPRECHPARTNER</p></td>
-						</tr>
-						<tr class="table_row_even">
-							<td><p class="info pre text Email">E-Mail</p></td>
-							<td><p class="info replace Email">EMAIL</p></td>
-						</tr>
-						<tr class="table_row_odd">
-							<td><p class="info pre text Telefon">Tel</p></td>
-							<td><p class="info replace Telefon">TEL</p></td>
-						</tr>
-					</table>
-				</main>
-				<aside>
-					<h3>Vereine</h3>
-					<br>
-					<div id="info_Vereine">
-						<div class="verein eintrag">
-							<header>
-								<h4 class="verein replace name">VEREIN_NAME2</h4>
-							</header>
-							<p class="verein pre text Sportarten">Angegebene Sportarten:</p>
-							<p class="verein replace sportarten">
-								SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN,
-								SPORTARTEN, SPORTARTEN
-							</p>
-							<a class="verein text link" href="">Weitere Informationen></a>
-						</div>
-						<br>
-						<div class="verein eintrag">
-							<header>
-								<h4 class="verein replace name">VEREIN_NAME1</h4>
-							</header>
-							<p class="verein pre text Sportarten">Angegebene Sportarten:</p>
-							<p class="verein replace sportarten">
-								SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN, SPORTARTEN,
-								SPORTARTEN, SPORTARTEN
-							</p>
-							<a class="verein text link" href="">Weitere Informationen></a>
-						</div>
-					</div>
-				</aside>
-			</article>
-	
 			<div id="map"></div>
 			<script
 				defer

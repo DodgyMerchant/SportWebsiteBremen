@@ -28,7 +28,8 @@ html p {
 body {
 	margin: 0 auto;
 	padding: 0;
-	height: 100%;
+	height: 100vh;
+	/* height: 100%; */
 	/* background-repeat: no-repeat;
   background-attachment: fixed; */
 }
@@ -51,6 +52,33 @@ html {
 	margin: 0;
 	padding: 0;
 }
+
+/* #region 3part expanding setup */
+
+.expBox {
+	display: flex;
+	flex-flow: column;
+}
+
+.expBox > .expTop {
+	flex: 0 1 auto;
+	/* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.expBox > .expMiddle {
+	flex: 1 1 auto;
+}
+
+.expBox > .expBottom {
+	flex: 0 1 40px;
+}
+
+/* #endregion expanding setup */
+/* #region navbar */
 
 .navbar {
 	height: 60px;
@@ -84,6 +112,9 @@ html {
 	color: #343a40;
 	cursor: pointer;
 }
+
+/* #endregion navbar */
+/* #region deko */
 
 .obenlinks {
 	position: fixed;
@@ -132,16 +163,115 @@ html {
 	left: 50%;
 	z-index: -1;
 }
+/* #endregion deko */
+/* #region inhalt*/
 
-.mehrbox {
+.inhalt {
+	--inhaltPadding: 1em;
+
+	position: relative;
 	float: left;
-	position: absolute;
-	height: 100%;
+	/* height: 100%; */
+	height: auto;
 	width: 100%;
-	z-index: 8;
+	z-index: 10;
 	overflow: hidden;
-	padding: 20px
+	padding: var(--inhaltPadding);
+
+	/* height: 100%; */
+	/* height: auto; */
 }
+
+/* #region map */
+
+#map,
+#mapInfo,
+#mapInfoBox {
+	border-radius: 5px;
+}
+
+#map,
+#mapInfo {
+	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
+	box-shadow: 0px 0px 10px -2px #9d9d9d;
+}
+
+#mapInfoBox {
+	display: none; /* block none*/
+	--rememberDisplay: block; /* holds display for toggle */
+
+	position: absolute;
+	left: var(--inhaltPadding);
+	right: var(--inhaltPadding);
+	overflow: hidden;
+	z-index: 10;
+
+	/* width: 50%; only for debugging */
+	width: 35%;
+	/* height: 100%; */
+	/* height: auto; */
+	padding: 0.8em;
+
+	/* make div click through */
+	pointer-events: none;
+}
+#mapInfoBox * {
+	/* revert clickthrough for  */
+	pointer-events: initial;
+}
+
+#mapInfo {
+	overflow: scroll;
+	background-color: var(--colBackgound);
+	/* background-color: red; */
+	opacity: 0.8;
+	padding: 20px;
+
+	width: 100%;
+	/* height: 100%; */
+	/* height: auto; */
+}
+
+#map {
+	width: 100%;
+	height: 100%; /* 100% */
+}
+
+#MapMarkerInfo_Titel {
+	font-size: 18px;
+}
+
+.table_row_odd {
+	background-color: var(--rowOdd);
+}
+
+.table_row_even {
+	background-color: var(--rowEven);
+}
+
+.table {
+	width: 100%;
+	text-align: center;
+	padding: 20px 0px;
+}
+
+.table td {
+	/* padding: 8px 42.5px 6px 42.5px; */
+	padding: 8px 0em 6px 0em;
+}
+
+#info_Vereine {
+	line-height: 25px;
+}
+
+/* sportarten auflistung */
+.listing {
+	font-size: 70%;
+	line-height: inherit;
+}
+
+/* #endregion map */
+/* #region mehr */
 
 .mehrInhalt {
 	height: 100%;
@@ -171,20 +301,18 @@ html {
 	font-weight: normal;
 }
 
-
-.mehrText{
+.mehrText {
 	padding-top: 30px;
 }
 
-.kontaktbox {
-	float: left;
+.mehrBild {
 	position: absolute;
-	height: 100%;
-	width: 100%;
-	z-index: 8;
-	overflow: hidden;
-	padding: 20px
+	padding-left: 800px;
+	padding-top: 10px;
 }
+
+/* #endregion mehr */
+/* #region kontakt */
 
 .kontaktInhalt {
 	height: 100%;
@@ -213,94 +341,8 @@ html {
 	padding-top: 30px;
 }
 
-.mehrBild {
-	position: absolute;
-	padding-left: 800px;
-	padding-top: 10px;
-}
+/* #endregion kontakt */
 
-/* #region map */
+/* #endregion inhalt */
 
-#mapbox {
-	/* malte */
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	gap: 1em;
-	/* vlad */
-	float: left;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	z-index: 10;
-	overflow: hidden;
-	padding: 20px
-}
-
-#mapInfo,
-#map {
-	flex-basis: 15em;
-	flex-grow: 1;
-}
-
-#map {
-	height: auto; /* 100% */
-	width: auto;
-	border-radius: 5px;
-	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
-	box-shadow: 0px 0px 10px -2px #9d9d9d;
-}
-
-#mapInfo {
-	/* malte */
-	display: block; /* block none*/
-	--rememberDisplay: block; /* holds display for toggle */
-	/* width: max-content; */
-
-	/* vlad */
-	height: auto;
-	position: absolute;
-	border-radius: 5px;
-	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
-	box-shadow: 0px 0px 10px -2px #9d9d9d;
-	width: 500px;
-	background-color: var(--colBackgound);
-	opacity: 0.8;
-	padding: 20px;
-	z-index: 10;
-	margin-top: 70px;
-	margin-left: 20px;
-}
-
-#MapMarkerInfo_Titel {
-	font-size: 18px;
-}
-
-.table_row_odd {
-	background-color: var(--rowOdd);
-}
-
-.table_row_even {
-	background-color: var(--rowEven);
-}
-
-.table {
-	text-align: center;
-	padding: 20px 0px 20px 0px;
-}
-
-.table td {
-	padding: 8px 42.5px 6px 42.5px;
-}
-
-#info_Vereine {
-	line-height: 25px;
-}
-
-/* table td {
-	line-height: 25px;
-	text-align: center;
-	padding: 8px 8px 6px 8px;
-} */
-
-/* #endregion map */
+/* TEST */
