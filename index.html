@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="main.css" />
 		<script type="module" src="js/index.js"></script>
+		<script type="text/javascript" src="js/display.js"></script>
 		<!-- text/javascript module -->
 		<title>Sportmap</title>
 	</head>
@@ -202,7 +203,7 @@
 			</ul>
 		</div>
 
-		<div id="mapbox" class="inhalt expMiddle">
+		<div id="mapbox" class="inhalt expMiddle round">
 			<!-- template used for the map -->
 			<template id="template_vereine">
 				<div class="verein eintrag">
@@ -218,10 +219,15 @@
 				</div>
 			</template>
 
-      <div id="mapInfoBorder"></div>
-
-			<div id="mapInfoBox">
-				<article id="mapInfo">
+			<div id="mapInfoBox" class="round">
+				<button
+					id="mapInfoCloseButton"
+					class="closeButton"
+					onclick="displayDisable(document.getElementById('mapInfoBox'))"
+				>
+					&#10006;
+				</button>
+				<article id="mapInfo" class="round">
 					<header>
 						<h3 class="info replace name">TESTINFOBOX</h3>
 					</header>
@@ -261,7 +267,7 @@
 				</article>
 			</div>
 
-			<div id="map"></div>
+			<div id="map" class="round"></div>
 			<script
 				defer
 				src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"

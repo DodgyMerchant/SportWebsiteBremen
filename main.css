@@ -1,3 +1,18 @@
+/* #region variables */
+
+:root {
+	/* layers */
+	--zLayer_mapUI: 10;
+	--zLayer_UI: 999;
+
+	/* colors */
+	--colCloseButtonBorder: #00000018;
+	--colBackgound: white;
+	--colRowOdd: #adb5bd;
+	--colRowEven: #dee2e6;
+}
+
+/* #endregion variables */
 /* #region Boilerplate */
 
 html {
@@ -43,9 +58,6 @@ img {
 /* #endregion Boilerplate */
 
 html {
-	--colBackgound: white;
-	--rowOdd: #adb5bd;
-	--rowEven: #dee2e6;
 }
 
 * {
@@ -53,6 +65,25 @@ html {
 	padding: 0;
 }
 
+button {
+	border: 0px;
+	cursor: pointer;
+}
+
+.round {
+	border-radius: 0.5rem;
+}
+
+/* #region close button */
+
+.closeButton {
+	position: fixed;
+	z-index: var(--zLayer_UI);
+	width: 2em;
+	height: 2em;
+}
+
+/* #endregion close button */
 /* #region 3part expanding setup */
 
 .expBox {
@@ -114,7 +145,7 @@ html {
 }
 
 /* #endregion navbar */
-/* #region deko */
+/* #region deko elemente */
 
 .obenlinks {
 	position: fixed;
@@ -181,12 +212,6 @@ html {
 /* #region map */
 
 #map,
-#mapInfo,
-#mapInfoBox {
-	border-radius: 5px;
-}
-
-#map,
 #mapInfo {
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
 	box-shadow: 0px 0px 10px -2px #9d9d9d;
@@ -197,33 +222,33 @@ html {
 	--rememberDisplay: block; /* holds display for toggle */
 
 	position: absolute;
-	left: var(--inhaltPadding);
-	right: var(--inhaltPadding);
-	top: var(--inhaltPadding);
-	bottom: var(--inhaltPadding);
+	inset: var(--inhaltPadding);
 
-	/* inset: var(--inhaltPadding); */
-	z-index: 10;
+	z-index: var(--zLayer_mapUI);
 
 	/* width: 50%; only for debugging */
 	width: 35%;
-	height: auto;
+	height: 92%;
 	padding: 0.8em;
 
 	/* make div click through */
 	pointer-events: none;
+
+	/* children */
+	--infoDataPadding: 1.3em;
 }
-#mapInfoBox * {
+#mapInfoBox > * {
 	/* revert clickthrough for  */
 	pointer-events: initial;
 }
 
 #mapInfo {
-	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	background-color: var(--colBackgound);
 	/* background-color: red; */
 	opacity: 0.8;
-	padding: 20px;
+	padding: var(--infoDataPadding);
 
 	height: 100%;
 }
@@ -233,16 +258,26 @@ html {
 	height: 100%; /* 100% */
 }
 
+#mapInfoCloseButton {
+	font-size: inherit;
+	border-bottom: 1px solid var(--colCloseButtonBorder);
+	border-right: 1px solid var(--colCloseButtonBorder);
+	background: none;
+
+	width: var(--infoDataPadding);
+	height: var(--infoDataPadding);
+}
+
 #MapMarkerInfo_Titel {
 	font-size: 18px;
 }
 
 .table_row_odd {
-	background-color: var(--rowOdd);
+	background-color: var(--colRowOdd);
 }
 
 .table_row_even {
-	background-color: var(--rowEven);
+	background-color: var(--colRowEven);
 }
 
 .table {
@@ -272,7 +307,6 @@ html {
 .mehrInhalt {
 	height: 100%;
 	width: 100%;
-	border-radius: 5px;
 	z-index: 10;
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
 	box-shadow: 0px 0px 10px -2px #9d9d9d;
@@ -313,7 +347,6 @@ html {
 .kontaktInhalt {
 	height: 100%;
 	width: 100%;
-	border-radius: 5px;
 	z-index: 10;
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
 	box-shadow: 0px 0px 10px -2px #9d9d9d;
