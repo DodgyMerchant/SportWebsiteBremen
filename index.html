@@ -223,7 +223,7 @@
 				<button
 					id="mapInfoCloseButton"
 					class="closeButton"
-					onclick="displayDisable(document.getElementById('mapInfoBox'))"
+					onclick="closeInfo()"
 				>
 					&#10006;
 				</button>
@@ -231,7 +231,7 @@
 					<header>
 						<h3 class="info replace name">TESTINFOBOX</h3>
 					</header>
-					<br />
+					<img class="info location image" src="" alt="picture of location" />
 					<main>
 						<p class="info replace adresse">ADRESSE</p>
 						<table class="table">
@@ -261,7 +261,6 @@
 					</main>
 					<aside>
 						<h3>Vereine</h3>
-						<br />
 						<div id="info_Vereine"></div>
 					</aside>
 				</article>

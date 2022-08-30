@@ -279,7 +279,7 @@ const target_infoBox = document.getElementById("mapInfoBox");
 const target_info = document.getElementById("mapInfo");
 const target_vereine = document.getElementById("info_Vereine");
 const displayText_DATA_NOT_AVALABLE = "N.a.";
-var info_locCurrent = null;
+var info_markerCurrent = null;
 
 //check for Template support
 const supportsTemplate = document.createElement("Template").content;
@@ -321,8 +321,8 @@ function getElementByClass(parent, className) {
 function createVereinHTML(verein) {
 	let _newClone = getTemplate(Template_Vereine).firstElementChild;
 
-	infoReplace(_newClone, "verein replace name", verein.name);
-	infoReplace(
+	elementSetInner(_newClone, "verein replace name", verein.name);
+	elementSetInner(
 		_newClone,
 		"verein replace sportarten",
 		dataDispalySportarten(verein)
@@ -335,39 +335,66 @@ function createVereinHTML(verein) {
 //#endregion Templates
 
 /**
+ * select given marker and disolay its location in the info panel
+ * @param {any} newMarker map marker
+ */
+function markerSelect(newMarker) {
+	if (newMarker != info_markerCurrent) {
+		// old marker exists
+		if (newMarker != null) {
+			//deselect
+			markerDeselect(info_markerCurrent);
+		}
+
+		info_markerCurrent = newMarker;
+		updateInfo(newMarker.CUSTOM_location);
+	}
+}
+/**
  *
+ * @param {any} oldMarker map marker
+ */
+function markerDeselect(oldMarker) {
+	//marker specific stuff
+	cleanInfo();
+	info_markerCurrent = null;
+}
+
+/**
+ * update information in info panel with location information.
+ * maybe needs to be cleaned first
  * @param {SportLocation} location
  */
-function displayInfo(location) {
-	//if new location
-	if (info_locCurrent != location) {
-		displayEnable(target_infoBox);
-
-		cleanInfo();
-		addInfo(location);
-	}
+function updateInfo(location) {
+	displayEnable(target_infoBox);
+	setInfo(location);
 }
 /**
  *
  * @param {SportLocation} location
  */
-function addInfo(location) {
+function setInfo(location) {
 	// target_info.getElementsByClassName("content-Text").innerText = entry.text;
-	// img = target_info.getElementsByClassName("content-img");
-	// img.src = "./content/" + entry.imageURL;
+
+	let img = target_info.getElementsByClassName("info location image")[0];
+	img.src = location.bildLink;
 	// img.alt = entry.imageAlt;
 
-	infoReplace(target_info, "info replace name", location.titel);
-	infoReplace(target_info, "info replace typ", location.typ);
-	infoReplace(
+	elementSetInner(target_info, "info replace name", location.titel);
+	elementSetInner(target_info, "info replace typ", location.typ);
+	elementSetInner(
 		target_info,
 		"info replace sportarten",
 		dataDispalySportarten(location)
 	);
-	infoReplace(target_info, "info replace adresse", location.adresse);
-	infoReplace(target_info, "info replace ansprchP", location.ansprechpartner);
-	infoReplace(target_info, "info replace telefon", location.telefon);
-	infoReplace(target_info, "info replace email", location.eMail);
+	elementSetInner(target_info, "info replace adresse", location.adresse);
+	elementSetInner(
+		target_info,
+		"info replace ansprchP",
+		location.ansprechpartner
+	);
+	elementSetInner(target_info, "info replace telefon", location.telefon);
+	elementSetInner(target_info, "info replace email", location.eMail);
 
 	//add vereine
 
@@ -387,7 +414,7 @@ function addInfo(location) {
  * @param {any} data
  * @returns {HTMLElement}
  */
-function infoReplace(parent, className, data) {
+function elementSetInner(parent, className, data) {
 	let target = getElementByClass(parent, className);
 
 	if (target) {
@@ -411,6 +438,14 @@ function cleanInfo() {
  */
 function dataDispalySportarten(obj) {
 	return obj.sportarten.join(", ");
+}
+
+// close button
+
+function closeInfo() {
+	markerDeselect(info_markerCurrent);
+	//close info
+	displayDisable(target_infoBox);
 }
 
 //#endregion
@@ -464,6 +499,7 @@ async function mapPopulate() {
  * add a marker to the map
  * @param {any} map
  * @param {SportLocation} location location object
+ * @returns {any} google map marker
  */
 function addMarker(map, location) {
 	let marker = new google.maps.Marker({
@@ -473,7 +509,7 @@ function addMarker(map, location) {
 	});
 	marker.CUSTOM_location = location;
 	marker.clickFunc = function () {
-		displayInfo(this.CUSTOM_location);
+		markerSelect(this);
 	};
 
 	if (location.iconLink) {
@@ -481,6 +517,8 @@ function addMarker(map, location) {
 	}
 
 	marker.addListener("click", marker.clickFunc, false);
+
+	return marker;
 }
 
 window.initMap = initMap;

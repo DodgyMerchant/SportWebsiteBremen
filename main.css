@@ -6,10 +6,10 @@
 	--zLayer_UI: 999;
 
 	/* colors */
-	--colCloseButtonBorder: #00000018;
-	--colBackgound: white;
-	--colRowOdd: #adb5bd;
-	--colRowEven: #dee2e6;
+	--colBorderLight: #00000018;
+	--colBackgound: rgba(255, 255, 255, 0.76);
+	--colRowOdd: #adb5bd88;
+	--colRowEven: #dee2e683;
 }
 
 /* #endregion variables */
@@ -216,18 +216,25 @@ button {
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
 	box-shadow: 0px 0px 10px -2px #9d9d9d;
 }
-
 #mapInfoBox {
+	/* display toggling */
 	display: none; /* block none*/
 	--rememberDisplay: block; /* holds display for toggle */
 
+	/* handling absolut */
 	position: absolute;
 	inset: var(--inhaltPadding);
 
+	/* z index over map */
 	z-index: var(--zLayer_mapUI);
 
-	/* width: 50%; only for debugging */
-	width: 35%;
+	/* only for debugging */
+	width: 70%;
+	/* width: 35%; */
+	/*
+  92% so google lable at the bottom is still visible.
+  dont know if thats required.
+  just in case*/
 	height: 92%;
 	padding: 0.8em;
 
@@ -236,23 +243,21 @@ button {
 
 	/* children */
 	--infoDataPadding: 1.3em;
+	--infoOffset: 1em;
 }
 #mapInfoBox > * {
 	/* revert clickthrough for  */
 	pointer-events: initial;
 }
-
 #mapInfo {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	background-color: var(--colBackgound);
 	/* background-color: red; */
-	opacity: 0.8;
 	padding: var(--infoDataPadding);
 
 	height: 100%;
 }
-
 #map {
 	width: 100%;
 	height: 100%; /* 100% */
@@ -260,8 +265,8 @@ button {
 
 #mapInfoCloseButton {
 	font-size: inherit;
-	border-bottom: 1px solid var(--colCloseButtonBorder);
-	border-right: 1px solid var(--colCloseButtonBorder);
+	border-bottom: 1px solid var(--colBorderLight);
+	border-right: 1px solid var(--colBorderLight);
 	background: none;
 
 	width: var(--infoDataPadding);
@@ -270,6 +275,11 @@ button {
 
 #MapMarkerInfo_Titel {
 	font-size: 18px;
+}
+
+.info.image {
+	opacity: 1;
+	border: 2px solid var(--colBorderLight);
 }
 
 .table_row_odd {
@@ -291,14 +301,31 @@ button {
 	padding: 8px 0em 6px 0em;
 }
 
-#info_Vereine {
-	line-height: 25px;
+/* verein */
+
+.verein.sportarten.replace {
+	background: rgba(0, 0, 0, 0.144);
+	padding: 1em;
+}
+/* all direct children that arent headers */
+.verein.eintrag > :not(header) {
+	margin-left: 1em;
+}
+
+/* offset */
+#mapInfo h3,
+#mapInfo img {
+	margin-bottom: var(--infoOffset);
+}
+#mapInfo h4 {
+	margin-top: calc(var(--infoOffset));
+	margin-bottom: calc(var(--infoOffset) / 2);
 }
 
 /* sportarten auflistung */
 .listing {
 	font-size: 70%;
-	line-height: inherit;
+	line-height: 1em;
 }
 
 /* #endregion map */
