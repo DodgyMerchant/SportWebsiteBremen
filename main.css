@@ -224,6 +224,8 @@ svg {
 	color: var(--colDarkGreen);
 	font-size: 1.5em;
 	font-weight: bold;
+
+	margin-bottom: 0.5em;
 }
 
 /* #region map */
@@ -278,10 +280,6 @@ svg {
 #map {
 	width: 100%;
 	height: 100%; /* 100% */
-}
-
-#mapInfo h2 {
-	margin-bottom: 0.5em;
 }
 
 #mapInfoCloseButton {
@@ -340,8 +338,8 @@ svg {
 	padding: 0.7em 0.7em;
 	background: var(--colBorderLight);
 }
-.verein.eintrag > div > *+* {
-  margin-top: 1em;
+.verein.eintrag > div > * + * {
+	margin-top: 1em;
 }
 
 #info_Vereine h4 {
@@ -362,7 +360,8 @@ svg {
 #mehrInhalt {
 	display: flex;
 	flex-flow: row nowrap;
-	gap: var(--inhaltPadding);
+	justify-content: space-between;
+	/* gap: var(--inhaltPadding); */
 
 	height: 100%;
 	width: 100%;
@@ -374,22 +373,28 @@ svg {
 	padding: var(--inhaltPadding);
 }
 
-.mehrtext {
-	flex: 1 1 300px;
+#mehrtext {
+	flex: 1 1 21em;
 	overflow: auto;
-	font-size: 1em;
+	max-width: 50vw;
 }
-
-.mehrtext > p {
-	margin: 1em 0em;
+/* every article followed by article | all aricles except the first one */
+#mehrtext > article + article {
+	margin-top: 1em;
+}
+#mehrtext h3 {
+	margin-bottom: 0.5em;
+}
+#mehrtext p {
 	margin-left: 0.5em;
 }
 
-.mehrGIF {
+#mehrGIF {
 	-webkit-box-shadow: 0px 0px 10px -2px #9d9d9d;
 	box-shadow: 0px 0px 10px -2px #9d9d9d;
 	max-height: 100%;
 	width: auto;
+	margin: 0em 2em;
 }
 
 /* #endregion mehr */
@@ -404,10 +409,6 @@ svg {
 	font-weight: normal;
 
 	padding: var(--inhaltPadding);
-}
-
-#kontakt h2 {
-	margin-bottom: 0.5em;
 }
 #kontakt :not(h2) {
 	margin-left: 1em;
