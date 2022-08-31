@@ -347,7 +347,6 @@ function markerSelect(newMarker) {
 		}
 
 		info_markerCurrent = newMarker;
-		console.log(this);
 		newMarker.setIcon(markerIcon);
 		updateInfo(newMarker.CUSTOM_location);
 	}
@@ -691,3 +690,7 @@ function ProcessDataVereine(rows) {
 }
 
 //#endregion
+
+document
+	.getElementById("mapInfoCloseButton")
+	.addEventListener("click", closeInfo);
