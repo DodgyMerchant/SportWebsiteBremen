@@ -38,8 +38,7 @@ class SportLocation {
 	typ;
 	/**
 	 * coordinat obj with long, lat properties
-	 * @type {Coordinate}
-	 */
+	 * @type {google.maps.LatLng}
 	coordinate;
 	/**
 	 * link to icon used
@@ -69,7 +68,7 @@ class SportLocation {
 	 * @param {String} telefon Telefon des Vereins
 	 * @param {String} eMail Email Adresse des Vereins
 	 * @param {String} typ "Mitgliedschaft" Email Adresse des Vereins
-	 * @param {Coordinate} coordinate coordinat obj with long, lat properties
+	 * @param {google.maps.LatLng} coordinate coordinat obj with long, lat properties
 	 * @param {string} bildLink link to image used
 	 * @param {string} iconLink link to icon used
 	 * @param {Verein[]} vereine
@@ -347,8 +346,24 @@ function markerSelect(newMarker) {
 		}
 
 		info_markerCurrent = newMarker;
-		newMarker.setIcon(markerIcon);
 		updateInfo(newMarker.CUSTOM_location);
+
+		//icon
+		// let _w = 32;
+		// let _h = (markerIcon.height / markerIcon.width) * _w;
+
+		let _h = 37;
+		let _w = (markerIcon.width / markerIcon.height) * _h;
+
+		newMarker.setIcon({
+			size: new google.maps.Size(markerIcon.width, markerIcon.height),
+			scaledSize: new google.maps.Size(_w, _h),
+			url: markerIcon.src,
+			origin: new google.maps.Point(0, 0), // origin
+			anchor: new google.maps.Point(_w / 2, _h), // anchor
+		});
+
+		// newMarker.setIcon(markerIconObj);
 	}
 }
 /**
@@ -359,7 +374,7 @@ function markerDeselect(oldMarker) {
 	//marker specific stuff
 	cleanInfo();
 	info_markerCurrent = null;
-	oldMarker.setIcon("");
+	oldMarker.setIcon(undefined);
 }
 
 /**
@@ -458,13 +473,23 @@ function closeInfo() {
  * @type {any}
  */
 var MAP;
-const markerIcon = "http://labs.google.com/ridefinder/images/mm_20_green.png";
 
-/**
- * @typedef {Object} Coordinate
- * @property {number} lat latitude of the coordinate
- * @property {number} lng latitude of the coordinate
- */
+const markerIcon = new Image();
+markerIcon.src = "/img/marker.png";
+
+// let _w = 32;
+// let _h = (markerIcon.height / markerIcon.width) * _w;
+
+// let _h = 37;
+// let _w = (markerIcon.width / markerIcon.height) * _h;
+// const markerIconObj = {
+// 	size: new google.maps.Size(markerIcon.width, markerIcon.height),
+// 	scaledSize: new google.maps.Size(_w, _h),
+// 	url: markerIcon.src,
+// 	origin: new google.maps.Point(0, 0), // origin
+// 	anchor: new google.maps.Point(_w / 2, _h), // anchor
+// };
+
 function initMap() {
 	mapSetup();
 	getData();
@@ -475,9 +500,9 @@ function mapSetup() {
 	PT_MAP_SETUP.start();
 	/**
 	 * bremen coordinate
-	 * @type {Coordinate} stuff
+	 * @type {google.maps.LatLng} stuff
 	 */
-	const Loc_Bremen = { lat: 53.0793, lng: 8.8017 };
+	const Loc_Bremen = new google.maps.LatLng(53.0793, 8.8017);
 
 	MAP = new google.maps.Map(document.getElementById("map"), {
 		zoom: 11,
@@ -631,10 +656,10 @@ function ProcessDataLocation(rows) {
 				GSFJson_cellGet(entries[3]),
 				GSFJson_cellGet(entries[4]),
 				GSFJson_cellGet(entries[5]),
-				{
-					lat: GSFJson_cellGet(entries[6]),
-					lng: GSFJson_cellGet(entries[7]),
-				},
+				new google.maps.LatLng(
+					GSFJson_cellGet(entries[6]),
+					GSFJson_cellGet(entries[7])
+				),
 				GSFJson_cellGet(entries[8]),
 				GSFJson_cellGet(entries[9]),
 				[],
