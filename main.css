@@ -280,6 +280,10 @@ svg {
 	height: 100%; /* 100% */
 }
 
+#mapInfo h2 {
+	margin-bottom: 0.5em;
+}
+
 #mapInfoCloseButton {
 	font-size: inherit;
 	border-bottom: 1px solid var(--colBorderLight);
@@ -294,7 +298,7 @@ svg {
 	font-size: 18px;
 }
 
-.info.image {
+#mapInfo .image {
 	opacity: 1;
 	border: 2px solid var(--colBorderLight);
 }
@@ -302,41 +306,48 @@ svg {
 .table_row_odd {
 	background-color: var(--colRowOdd);
 }
-
 .table_row_even {
 	background-color: var(--colRowEven);
 }
-
 .table {
 	width: 100%;
 	text-align: center;
 	padding: 20px 0px;
 }
-
 .table td {
 	/* padding: 8px 42.5px 6px 42.5px; */
 	padding: 8px 0em 6px 0em;
 }
-
-/* verein */
-
-.verein.sportarten.replace {
-	background: rgba(0, 0, 0, 0.144);
-	padding: 1em;
-}
-/* all direct children that arent headers */
-.verein.eintrag > :not(header) {
-	margin-left: 1em;
-}
-
 /* offset */
 #mapInfo h3,
 #mapInfo img {
 	margin-bottom: var(--infoOffset);
 }
-#mapInfo h4 {
-	margin-top: calc(var(--infoOffset));
-	margin-bottom: calc(var(--infoOffset) / 2);
+
+/* verein */
+
+/* abstand zwischen einträgen */
+#info_Vereine > div + div {
+	margin-top: 1em;
+}
+
+#info_Vereine .verein.sportarten.replace {
+	background: rgba(0, 0, 0, 0.144);
+	padding: 0.5em;
+}
+/* all direct children that arent headers */
+.verein.eintrag > div {
+	padding: 0.7em 0.7em;
+	background: var(--colBorderLight);
+}
+.verein.eintrag > div > *+* {
+  margin-top: 1em;
+}
+
+#info_Vereine h4 {
+	font-weight: bold;
+	color: var(--colLightGreen);
+	margin-bottom: calc(var(--infoOffset) * 0.1);
 }
 
 /* sportarten auflistung */
