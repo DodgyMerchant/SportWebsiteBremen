@@ -465,6 +465,10 @@ function closeInfo() {
 	displayDisable(target_infoBox);
 }
 
+document
+	.getElementById("mapInfoCloseButton")
+	.addEventListener("click", closeInfo);
+
 //#endregion
 //#region map
 
@@ -716,6 +720,4 @@ function ProcessDataVereine(rows) {
 
 //#endregion
 
-document
-	.getElementById("mapInfoCloseButton")
-	.addEventListener("click", closeInfo);
+
