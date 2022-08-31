@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="main.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="main.css" />
 		<title>Sportmap - Mehr</title>
 	</head>
 
@@ -15,7 +18,7 @@
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g opacity="0.9" clip-path="url(#clip0_226_44)">
+			<g clip-path="url(#clip0_226_44)">
 				<path
 					d="M333.57 311.06H289.22V0H378.9L378.9 265.74C378.9 290.76 358.59 311.07 333.57 311.07V311.06Z"
 					fill="#027333"
@@ -36,35 +39,6 @@
 				</clipPath>
 			</defs>
 		</svg>
-		<svg
-			class="obenlinks1"
-			width="379"
-			height="312"
-			viewBox="0 0 379 312"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<g clip-path="url(#clip0_228_57)">
-				<path
-					d="M333.57 311.06H289.22V0H378.9L378.9 265.74C378.9 290.76 358.59 311.07 333.57 311.07V311.06Z"
-					fill="#027333"
-				/>
-				<path
-					d="M378.9 221.39V265.76C378.9 290.76 358.6 311.07 333.59 311.07L-910 311.07V221.39L378.9 221.39Z"
-					fill="#027333"
-				/>
-			</g>
-			<defs>
-				<clipPath id="clip0_228_57">
-					<rect
-						width="311.07"
-						height="1288.9"
-						fill="white"
-						transform="translate(378.9) rotate(90)"
-					/>
-				</clipPath>
-			</defs>
-		</svg>
 
 		<svg
 			class="schraege"
@@ -74,34 +48,11 @@
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g opacity="0.9" clip-path="url(#clip0_228_53)">
+			<g clip-path="url(#clip0_228_53)">
 				<path d="M0 884.51L892.51 -8H765.68L0 757.68V884.51Z" fill="#056830" />
 			</g>
 			<defs>
 				<clipPath id="clip0_228_53">
-					<rect
-						width="892.51"
-						height="892.51"
-						fill="white"
-						transform="translate(0 -8)"
-					/>
-				</clipPath>
-			</defs>
-		</svg>
-
-		<svg
-			class="schraege1"
-			width="893"
-			height="885"
-			viewBox="0 0 893 885"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<g clip-path="url(#clip0_226_47)">
-				<path d="M0 884.51L892.51 -8H765.68L0 757.68V884.51Z" fill="#056830" />
-			</g>
-			<defs>
-				<clipPath id="clip0_226_47">
 					<rect
 						width="892.51"
 						height="892.51"
@@ -141,7 +92,7 @@
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g opacity="0.9" clip-path="url(#clip0_228_51)">
+			<g clip-path="url(#clip0_228_51)">
 				<path
 					d="M90 1204L90 -99H-1.52588e-05L-1.52588e-05 1204H90Z"
 					fill="#027333"
@@ -158,52 +109,25 @@
 				</clipPath>
 			</defs>
 		</svg>
-		<svg
-			class="mitte1"
-			width="90"
-			height="1204"
-			viewBox="0 0 90 1204"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<g clip-path="url(#clip0_228_60)">
-				<path
-					d="M90 1204L90 -99H-1.52588e-05L-1.52588e-05 1204H90Z"
-					fill="#027333"
-				/>
-			</g>
-			<defs>
-				<clipPath id="clip0_228_60">
-					<rect
-						width="90"
-						height="1303"
-						fill="white"
-						transform="translate(0 -99)"
-					/>
-				</clipPath>
-			</defs>
-		</svg>
 		<!-- #endregion Hintergrund Ende-->
 
-		<div class="navbar expTop">
+		<nav class="expTop">
 			<ul>
-				<li style="padding-left: 15px; position: relative; z-index: 10">
-					<a href="index.html"><strong>Sportmap</strong></a>
+				<li id="Logo">
+					<a href="index.html">Sportmap</a>
 				</li>
-				<li style="float: right; padding-right: 15px">
+				<li id="navKontakt">
 					<a href="kontakt.html">Kontakt</a>
 				</li>
-				<li style="float: right"><a href="#">Mehr</a></li>
+				<li id="navMehr"><a href="#">Mehr</a></li>
 			</ul>
-		</div>
+		</nav>
 
-		<div class="mehrbox inhalt expMiddle">
-			<div class="mehrInhalt round">
+		<div class="inhalt expMiddle">
+			<div id="mehrInhalt" class="round">
 				<div class="mehrtext">
-					<h2 class="mehrInformationüberdieWebsite">
-						Information über die Website
-					</h2>
-					<p class="mehrText">
+					<h2>Information über die Website</h2>
+					<p>
 						Mit dieser Webseite möchten wir den Zugang zu Sport- und Freizeit
 						angeboten für die geflüchteten Ukrainer erleichtern. Wir erhoffen
 						uns, dass sie durch Sport einen kurzen Ausweg aus ihrem Alltag
@@ -212,12 +136,8 @@
 						bieten einfacher nach Vereinen, Sportplätzen und auch Spielplätzen
 						zu suchen.
 					</p>
-					<br /><br /><br />
-
-					<h2 class="mehrInformationüberdasProjekt">
-						Information über das Projekt
-					</h2>
-					<p class="mehrtext2">
+					<h2>Information über das Projekt</h2>
+					<p>
 						Diese Webseite entand im Rahmen eines humanitären
 						Ukraine-Hilfsprojekts des Studiengangs Medieninformatik. In diesem
 						Semester haben wir uns mit Interface Design und Motion Design
@@ -227,39 +147,7 @@
 						Poster erstellt, das als Werbung für unsere Webseite dienen soll.
 					</p>
 				</div>
-				<div class="mehrBild">
-					<img class="mehrGIF" src="Sportmap Bremen.gif">
-					<!-- <svg
-						class="sportBild"
-						width="590"
-						height="590"
-						viewBox="0 0 960 913"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink"
-					>
-						<rect width="960" height="913" fill="url(#pattern0)" />
-						<defs>
-							<pattern
-								id="pattern0"
-								patternContentUnits="objectBoundingBox"
-								width="1"
-								height="1"
-							>
-								<use
-									xlink:href="#image0_99_50"
-									transform="translate(-0.362949) scale(0.00179781 0.00189036)"
-								/>
-							</pattern>
-							<image
-								id="image0_99_50"
-								width="960"
-								height="528"
-								xlink:href="Sportmap Bremen.gif"
-							/>
-						</defs>
-					</svg> -->
-				</div>
+				<img class="mehrGIF" src="Sportmap Bremen.gif" />
 			</div>
 		</div>
 	</body>
