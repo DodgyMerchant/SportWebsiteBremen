@@ -341,12 +341,14 @@ function createVereinHTML(verein) {
 function markerSelect(newMarker) {
 	if (newMarker != info_markerCurrent) {
 		// old marker exists
-		if (newMarker != null) {
+		if (info_markerCurrent != null) {
 			//deselect
 			markerDeselect(info_markerCurrent);
 		}
 
 		info_markerCurrent = newMarker;
+		console.log(this);
+		newMarker.setIcon(markerIcon);
 		updateInfo(newMarker.CUSTOM_location);
 	}
 }
@@ -358,6 +360,7 @@ function markerDeselect(oldMarker) {
 	//marker specific stuff
 	cleanInfo();
 	info_markerCurrent = null;
+	oldMarker.setIcon("");
 }
 
 /**
@@ -456,6 +459,7 @@ function closeInfo() {
  * @type {any}
  */
 var MAP;
+const markerIcon = "http://labs.google.com/ridefinder/images/mm_20_green.png";
 
 /**
  * @typedef {Object} Coordinate
